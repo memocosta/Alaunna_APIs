@@ -1,0 +1,75 @@
+<html dir="rtl">
+<style>
+    table,
+    th,
+    .thG {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+</style>
+<script type="text/handlebars"></script>
+
+<head>
+
+</head>
+
+<body style="border: 1px solid black;">
+    <div style="margin: 10px;">
+        تاريخ التقرير : {{todayDate}}
+        <span style="float: left;">
+            اوشن للتجار
+        </span>
+    </div>
+    <div style="margin: 30px;width: 100%;text-align: center">
+        تقرير الارباح
+        <p>
+            للفتره من {{from}} الي {{to}}
+        </p>
+    </div>
+    <table style="width: 95%; margin-left: 2.5%;margin-right: 2.5%;">
+        <tr>
+
+            <th>
+                اسم المنتج
+            </th>
+            <th>
+                اجمالي التكلفه
+            </th>
+            <th>
+                الكميه المباعه
+            </th>
+            <th>
+                اجمالي المبيعات
+            </th>
+            <th>
+               اجمالي الارباح
+            </th>
+        </tr>
+        {{#each profits}}
+        <tr>
+            <td class="thG"> {{this.name}} </td>
+            <td class="thG"> {{this.cost}} </td>
+            <td class="thG"> {{this.sales_quantity}} </td>
+            <td class="thG"> {{this.sales_price}} </td>
+            <td class="thG"> {{this.profit}} </td>
+        </tr>
+        {{/each}}
+
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="thG"> صافي الارباح </td>
+            <td class="thG"> {{total_profits}} </td>
+        </tr>
+
+    </table>
+</body>
+
+</html>

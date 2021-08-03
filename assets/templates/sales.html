@@ -1,0 +1,90 @@
+<html dir="rtl">
+<style>
+    table,
+    th,
+    .thG {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+</style>
+<script type="text/handlebars"></script>
+
+<head>
+
+</head>
+
+<body style="border: 1px solid black;">
+    <div style="margin: 10px;">
+        تاريخ التقرير : {{todayDate}}
+        <span style="float: left;">
+            اوشن للتجار
+        </span>
+    </div>
+    <div style="margin: 30px;width: 100%;text-align: center">
+        تقرير بحركه البيع
+        <p>
+            للفتره من {{from}} الي {{to}}
+        </p>
+    </div>
+    <table style="width: 95%; margin-left: 2.5%;margin-right: 2.5%;">
+        <tr>
+            <th>
+                التاريخ
+            </th>
+            <th>
+                اسم المنتج
+            </th>
+            <th>
+                القيمه
+            </th>
+            <th>
+                الكميه
+            </th>
+            <th>
+                الاجمالي
+            </th>
+        </tr>
+        {{#each sales}}
+        <tr>
+            <td class="thG"> {{this.date}} </td>
+            <td class="thG"> {{this.product_name}} </td>
+            <td class="thG"> {{this.value}} </td>
+            <td class="thG"> {{this.quantity}} </td>
+            <td class="thG"> {{this.total}} </td>
+        </tr>
+        {{/each}}
+
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="thG"> الضريبه </td>
+            <td class="thG"> {{tax}} </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="thG"> الخصم </td>
+            <td class="thG"> {{total_discount}} </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="thG"> الاجمالي </td>
+            <td class="thG"> {{total_price}} </td>
+        </tr>
+
+    </table>
+</body>
+
+</html>

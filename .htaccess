@@ -1,0 +1,17 @@
+RewriteEngine On
+#RewriteRule  /__getcookie http://127.0.0.1:1338/__getcookie
+RewriteRule ^$ http://127.0.0.1:1338/ [P,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ http://127.0.0.1:1338/$1 [P,L]
+
+    # ProxyRequests Off
+    # <Location />
+    #     ProxyPass http://127.0.0.1:1338/
+    #     ProxyPassReverse http://127.0.0.1:1338/
+
+    #     RewriteEngine On
+    #     RewriteCond %{HTTP:UPGRADE} ^WebSocket$ [NC]
+    #     RewriteCond %{HTTP:CONNECTION} Upgrade$ [NC]
+    #     RewriteRule /socket.io/(.*) ws://127.0.0.1:1338/socket.io/$1 [P]
+    # </Location>
